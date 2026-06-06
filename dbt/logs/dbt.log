@@ -1,0 +1,42 @@
+==================== 2026-06-06T01:06:48.780558Z | 019e9a77-e33b-7130-a79b-dccceaa13c71 ====================
+01:06:48.784170 [info ]: Installing dbt project and profile setup
+01:06:48.792698 [info ]: Info Created .vscode/extensions.json with dbt extension recommendation
+01:06:48.794221 [info ]: Success Project created successfully!
+01:06:48.795178 [info ]: Info Project name: jaffle_shop
+01:06:48.795220 [info ]: Info Project directory: jaffle_shop
+01:06:48.795249 [info ]: Info Setting up your profile...
+01:06:48.797069 [info ]: Loading ~/.dbt/profiles.yml
+01:06:48.803934 [info ]: Info Creating new profile...
+01:07:09.835108 [info ]: No dbt_cloud.yml found - proceeding without cloud pre-population
+01:11:06.215215 [info ]: Success Profile written to /Users/vedanarayananshrirangesh/.dbt/profiles.yml
+01:11:06.223488 [info ]: Validating profile inputs, adapters, and connection
+
+01:11:06.225039 [info ]: dbt-core 2.0.0-alpha.1
+01:11:06.232391 [info ]: Started loading project
+01:11:06.254326 [info ]: Loading ~/.dbt/profiles.yml
+01:11:06.265073 [info ]: Finished loading project [  0.03s]
+01:11:06.265951 [info ]: Started debugging
+01:11:06.266397 [info ]: Debugging profile: dev
+01:11:06.266437 [info ]: Debugging dbt version: 2.0.0-alpha.1
+01:11:06.266450 [info ]: Debugging platform: macos aarch64 (unix)
+01:11:06.266744 [info ]: Debugging adapter type: snowflake (remote)
+01:11:06.356423 [info ]: Debugging dependencies:
+  git: OK
+01:11:06.358354 [info ]: Debugging connection:
+  "account": "yqc79298.us-east-1",
+  "user": "RAN26",
+  "database": "CHURN_MLOPS",
+  "warehouse": "CHURN_WH",
+  "schema": "STAGING",
+  "role": "For Role, type:"
+01:11:10.863940 [info ]: Finished debugging [  4.60s]
+01:11:10.867022 [error]: [AuthenticationFailed (dbt1011)]: dbt was unable to connect to the specified database.
+The following error was returned:
+
+[Snowflake] 390100 (08004): Incorrect username or password was specified.
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles
+01:11:11.067664 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' with 1 error for target 'dev' [4m 22s]
