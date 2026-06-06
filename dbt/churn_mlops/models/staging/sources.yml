@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    database: CHURN_MLOPS
+    schema: RAW
+    tables:
+      - name: customers
+        description: "Raw Telco customer churn data loaded from Kaggle CSV"

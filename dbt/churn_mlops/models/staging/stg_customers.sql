@@ -1,24 +1,27 @@
-with
-
-source as (
-
-    -- {# This references seed (CSV) data - try switching to {{ source('ecom', 'raw_customers') }} #}
-    select * from {{ ref('raw_customers') }}
-
+with source as (
+    select * from {{ source('raw', 'customers') }}
 ),
 
-renamed as (
-
+staged as (
     select
-
-        ----------  ids
-        id as customer_id,
-
-        ---------- text
-        name as customer_name
-
+        customerid                                    as customer_id,
+        gender,
+        seniorcitizen                                 as is_senior_citizen,
+        case when partner = 'Yes' then 1 else 0 end   as has_partner,
+        case when dependents = 'Yes' then 1 else 0 end as has_dependents,
+        tenure                                        as tenure_months,
+        case when phoneservice = 'Yes' then 1 else 0 end as has_phone_service,
+        internetservice                               as internet_service_type,
+        contract                                      as contract_type,
+        case when paperlessbilling = 'Yes' then 1 else 0 end as is_paperless_billing,
+        paymentmethod                                 as payment_method,
+        monthlycharges                                as monthly_charges,
+        case 
+            when totalcharges = ' ' then 0 
+            else cast(totalcharges as float) 
+        end                                           as total_charges,
+        case when churn = 'Yes' then 1 else 0 end     as is_churned
     from source
-
 )
 
-select * from renamed
+select * from staged
